@@ -67,3 +67,29 @@
 
 
 
+/* Loader 
+------------------------------- */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .loader-out {
+    position: relative;
+    animation: spin 2.2s linear infinite;
+  }
+  
+  .loader-in {
+    position: absolute;
+  }
+  
+  @keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  }
+
