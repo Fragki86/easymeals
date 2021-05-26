@@ -61,34 +61,65 @@ function formValidation(event) {
         
     if (checkLength(Name.value, 5) && checkLength(content.value, 25) && checkEmail(email.value) && checkLength(subject.value, 15)) {
         success.style.display = "flex";
+        form.reset();
+        
     } else {
         success.style.display = "none";
     }
 
-    form.reset();
-    formSubmissionHandler();
+    
 }
 
 
-const formSubmissionHandler = (event) => {
+// const formSubmissionHandler = (event) => {
+//     event.preventDefault();
+  
+//     const form = event.target,
+//       { action, method } = form,
+//       body = new FormData(form);
+  
+//     fetch(action, {
+//       method,
+//       body
+//     })
+//       .then((response) => response.json())
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   };
+//   formSubmissionHandler();
+
+
+
+
+
+  const formSubmissionHandler = (event) => {
     event.preventDefault();
   
-    const form = event.target,
-      { action, method } = form,
-      body = new FormData(form);
+    const formElement = event.target,
+      { action, method } = formElement,
+      body = new FormData(formElement);
   
     fetch(action, {
       method,
       body
     })
       .then((response) => response.json())
+      .then((response) => {
+        // Determine if the submission is not valid
+        if (isFormSubmissionError(response)) {
+          // Handle the case when there are validation errors
+        }
+        // Handle the happy path
+      })
       .catch((error) => {
-        console.log(error);
+        // Handle the case when there's a problem with the request
       });
   };
   
-
-
+  const formElement = document.querySelector("form");
+  
+  formElement.addEventListener("submit", formSubmissionHandler);
 
 /*------------------------   Clear Document Function -----------------------------*/
 
