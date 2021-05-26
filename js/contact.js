@@ -73,9 +73,9 @@ function formValidation(event) {
 const formSubmissionHandler = (event) => {
     event.preventDefault();
   
-    const formElement = event.target,
-      { action, method } = formElement,
-      body = new FormData(formElement);
+    const form = event.target,
+      { action, method } = form,
+      body = new FormData(form);
   
     fetch(action, {
       method,
@@ -87,10 +87,6 @@ const formSubmissionHandler = (event) => {
       });
   };
   
-//   const formElement = document.querySelector("form");
-  
-//   formElement.addEventListener("submit", formSubmissionHandler);
-
 
 
 
