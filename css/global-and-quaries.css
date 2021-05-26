@@ -1407,10 +1407,9 @@ p {
 
   .search-icon {
     position: absolute;
-    right: 230px;
+    right: 220px;
     top: 215px;
     z-index: 10;
-    padding-left: 15px;
     margin-bottom: 10px;
   }
   
@@ -1423,16 +1422,19 @@ p {
   } */
   
   .search-div {
-    width: 80%;
+    width: 60%;
     top: 250px;
     left: 50%;
+    z-index: 2;
     border: 1px solid var(--dark-brown);
     transform: translate(-50%, -100%);
     transition: transform 0.4s ease-in;
+    /* opacity: 0; */
   }
   
   .search-visible {
     transform: translate(-50%, 0%);
+    /* opacity: 1, 0.4s; */
   }
   
   .search-div p {
