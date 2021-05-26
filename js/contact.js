@@ -101,13 +101,7 @@ function formValidation(event) {
       body
     })
       .then((response) => response.json())
-    //   .then((response) => {
-        
-    //     if (isFormSubmissionError(response)) {
-          
-    //     }
-        
-    //   })
+
       .catch((error) => {
         
       });
