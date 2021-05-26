@@ -87,9 +87,12 @@ const formSubmissionHandler = (event) => {
       });
   };
   
-  const formElement = document.querySelector("form");
+//   const formElement = document.querySelector("form");
   
-  formElement.addEventListener("submit", formSubmissionHandler);
+//   formElement.addEventListener("submit", formSubmissionHandler);
+
+
+
 
 /*------------------------   Clear Document Function -----------------------------*/
 
