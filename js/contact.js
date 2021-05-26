@@ -13,7 +13,6 @@ const success = document.querySelector("#success-message");
 
 
 form.addEventListener("submit", formValidation);
-form.addEventListener("submit", formSubmissionHandler);
 
 
 function checkLength (value, letters) {
@@ -67,7 +66,7 @@ function formValidation(event) {
     }
 
     form.reset();
-
+    formSubmissionHandler();
 }
 
 
