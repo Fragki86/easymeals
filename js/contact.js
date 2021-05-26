@@ -62,7 +62,7 @@ function formValidation(event) {
     if (checkLength(Name.value, 5) && checkLength(content.value, 25) && checkEmail(email.value) && checkLength(subject.value, 15)) {
         success.style.display = "flex";
         form.reset();
-        
+        formSubmissionHandler;
     } else {
         success.style.display = "none";
     }
@@ -89,10 +89,6 @@ function formValidation(event) {
 //   };
 //   formSubmissionHandler();
 
-
-
-
-
   const formSubmissionHandler = (event) => {
     event.preventDefault();
   
@@ -105,21 +101,24 @@ function formValidation(event) {
       body
     })
       .then((response) => response.json())
-      .then((response) => {
-        // Determine if the submission is not valid
-        if (isFormSubmissionError(response)) {
-          // Handle the case when there are validation errors
-        }
-        // Handle the happy path
-      })
+    //   .then((response) => {
+        
+    //     if (isFormSubmissionError(response)) {
+          
+    //     }
+        
+    //   })
       .catch((error) => {
-        // Handle the case when there's a problem with the request
+        
       });
   };
   
-  const formElement = document.querySelector("form");
+//   const formElement = document.querySelector("form");
   
-  formElement.addEventListener("submit", formSubmissionHandler);
+//   formElement.addEventListener("submit", formSubmissionHandler);
+
+
+
 
 /*------------------------   Clear Document Function -----------------------------*/
 
