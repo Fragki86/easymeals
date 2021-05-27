@@ -62,7 +62,8 @@ function formValidation(event) {
     if (checkLength(Name.value, 5) && checkLength(content.value, 25) && checkEmail(email.value) && checkLength(subject.value, 15)) {
         success.style.display = "flex";
         form.reset();
-        formSubmissionHandler;
+        formSubmissionHandler(event);
+        
     } else {
         success.style.display = "none";
     }
@@ -71,39 +72,21 @@ function formValidation(event) {
 }
 
 
-// const formSubmissionHandler = (event) => {
-//     event.preventDefault();
-  
-//     const form = event.target,
-//       { action, method } = form,
-//       body = new FormData(form);
-  
-//     fetch(action, {
-//       method,
-//       body
-//     })
-//       .then((response) => response.json())
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   };
-//   formSubmissionHandler();
-
   const formSubmissionHandler = (event) => {
     event.preventDefault();
-  
+    
     const formElement = event.target,
       { action, method } = formElement,
       body = new FormData(formElement);
-  
+      
     fetch(action, {
       method,
-      body
+      body      
     })
+    // console.log("2");
       .then((response) => response.json())
-
       .catch((error) => {
-        
+        console.log("ERRRR");
       });
   };
   
@@ -124,3 +107,22 @@ function clear() {
         clickToRemove.style.display = 'none';
     }
 };
+
+
+// const formSubmissionHandler = (event) => {
+//     event.preventDefault();
+  
+//     const form = event.target,
+//       { action, method } = form,
+//       body = new FormData(form);
+  
+//     fetch(action, {
+//       method,
+//       body
+//     })
+//       .then((response) => response.json())
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   };
+//   formSubmissionHandler();
