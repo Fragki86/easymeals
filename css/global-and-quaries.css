@@ -1411,6 +1411,7 @@ p {
     top: 215px;
     z-index: 10;
     margin-bottom: 10px;
+    cursor: pointer;
   }
   
   /* #search {
@@ -1553,6 +1554,26 @@ p {
     text-decoration: underline;
   }
 
+
+
+  .dropdown {
+    display: relative;
+  }
+
+
+  .dropdown:hover .categories {
+    display: flex;
+    
+  }
+
+  .categories {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 10%;
+    background-color: white;
+    border: 1px solid var(--dark-brown);
+  }
 
 
 
