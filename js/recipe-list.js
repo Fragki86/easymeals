@@ -1,32 +1,7 @@
 const recipeContainer = document.querySelector(".recipes-list");
 const callAPI = "https://easy-meals-recipes.georgiosf.no/wp-json/wp/v2/wprm_recipe?per_page=100";
-const categorySelector = document.querySelector(".all-categories")
-const showMoreBtn = document.querySelector("#showMoreBtn")
-
-
-
-// function selectedOption(choice) {
-//     let option;
-//     for (let x = 0; x < choice.option.length; x++) {
-//         console.log(choice.option.length[x])
-//         option = choice.option[x];
-
-//         if (option.selected === true) {
-//             break;
-//         }
-//     }
-//     return option;
-// }
-// selectedOption();
-
-// for (let x = 0; x < categorySelector.length; x++) {
-    
-//     console.log(categorySelector[x].value)
-
-
-
-// }
-
+const changeCat = document.querySelector(".all-categories");
+const showMoreBtn = document.querySelector("#showMoreBtn");
 
 
 async function getRecipes() {
@@ -34,6 +9,23 @@ async function getRecipes() {
         const response = await fetch(callAPI);
         const recipes = await response.json();
         // console.log(recipes)
+
+        // TESTING
+        // console.log(recipes[0].recipe.tags.keyword[0].name);
+
+        // for (let q = 0; q < recipes.length; q++) {
+        //     console.log(recipes[q].recipe.tags.keyword[0].name)
+        // }
+
+
+
+
+
+
+
+
+        //----------------------------------------------------------
+
 
         recipeContainer.innerHTML = "";
 
@@ -99,24 +91,35 @@ async function getRecipes() {
                 showMoreBtn.innerText = "No more recipes to show"
                 showMoreBtn.style.width = "50%";
             }
-            
-            
 
-           
+
+            
+            function filterByCategory() {
+                let categorySelector = document.querySelector(".all-categories").value;
+                console.log(categorySelector);
+
+                for (let i = 0; i < recipes.length; i++) {
+                    console.log(recipes);
+
+
+                    if (categorySelector === "all_recipes") {
+                        console.log(recipes[i].recipe.name);
+                    } else if (categorySelector === "meat"){
+                        console.log(recipes[i].recipe.tags.keyword[0].name = true);
+                    }
+                }
+            }
+
+
+
         }
-
     } catch(error) {
         console.log("Error");
     }
-
-
+    
+    changeCat.addEventListener("change", filterByCategory);
     showMoreBtn.addEventListener("click", showMoreRecipes);
 }
 getRecipes();
-
-
-const filterByCategory = async (categ) => {
-
-}
 
 
