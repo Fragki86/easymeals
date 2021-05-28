@@ -72,23 +72,23 @@ function formValidation(event) {
 }
 
 
-  const formSubmissionHandler = (event) => {
-    event.preventDefault();
+//   const formSubmissionHandler = (event) => {
+//     event.preventDefault();
     
-    const formElement = event.target,
-      { action, method } = formElement,
-      body = new FormData(formElement);
+//     const formElement = event.target,
+//       { action, method } = formElement,
+//       body = new FormData(formElement);
       
-    fetch(action, {
-      method,
-      body      
-    })
-    // console.log("2");
-      .then((response) => response.json())
-      .catch((error) => {
-        console.log("ERRRR");
-      });
-  };
+//     fetch(action, {
+//       method,
+//       body      
+//     })
+//     console.log("2");
+//       .then((response) => response.json())
+//       .catch((error) => {
+//         console.log("ERRRR");
+//       });
+//   };
   
 //   const formElement = document.querySelector("form");
   
