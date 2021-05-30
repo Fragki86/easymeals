@@ -13,9 +13,9 @@ async function getRecipes() {
         // TESTING
         // console.log(recipes[0].recipe.tags.keyword[0].name);
 
-        // for (let q = 0; q < recipes.length; q++) {
-        //     console.log(recipes[q].recipe.tags.keyword[0].name)
-        // }
+        recipes.forEach(function(rec) {
+            console.log(rec.recipe.tags.keyword[0].name);
+        });
 
 
 
