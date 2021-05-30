@@ -13,9 +13,7 @@ async function getRecipes() {
         // TESTING
         // console.log(recipes[0].recipe.tags.keyword[0].name);
 
-        recipes.forEach(function(rec) {
-            console.log(rec.recipe.tags.keyword[0].name);
-        });
+        
 
 
 
@@ -98,21 +96,45 @@ async function getRecipes() {
                 let categorySelector = document.querySelector(".all-categories").value;
                 console.log(categorySelector);
 
-                // for (let i = 0; i < recipes.length; i++) {
-                //     console.log(recipes);
+                recipes.forEach(function(rec) {
+                    const category = rec.recipe.tags.keyword[0].name;
+                    
+                    // if (categorySelector === "meat") {
+                        
+                    //     console.log(category.value === "Meat")
+                    // } else if (categorySelector === "seafood") {
+                    //     console.log(category === "Seafood")
+                    // } else if (categorySelector === "pies") {
+                    //     console.log(category === "Pies")
+                    // }
 
+                    // for (let i = 0; i < recipes.length; i++) {
 
-                    if (categorySelector === "all_recipes") {
-                        console.log(recipes[i].recipe.name);
-                    } else if (categorySelector === "meat") {
-                        console.log(recipes[i].recipe.tags.keyword[0].name);
-                    }
-                
+                    //     let category = recipes[i].recipe.tags.keyword[0].name;
+
+                    //     if (categorySelector === "meat") {
+                    //         console.log(category === "Meat");
+                    //     }
+                    // }
+
+                    // if (categorySelector === "all_recipes") {
+                    //     console.log(recipes[i].recipe.name);
+                    // } 
+                    // else if (categorySelector === "meat") {
+                    //     console.log(category.name);
+                    // }
+                // });                
+            });
+
+            function checkCategory(rec) {
+                return category === "Meat";
             }
 
+            
 
 
         }
+    }
     } catch(error) {
         console.log("Error");
     }
@@ -123,3 +145,43 @@ async function getRecipes() {
 getRecipes();
 
 
+// const peopleContainer = document.querySelector(".people-container");
+// const filterButton = document.querySelector(".filter-button");
+// const filterInput = document.querySelector(".filter-input");
+
+// const peopleList = [
+//     {
+//         name: "Bob",
+//         age: 35
+//     },
+//     {
+//         name: "Sally",
+//         age: 29
+//     },
+//     {
+//         name: "Mark",
+//         age: 45
+//     },
+//     {
+//         name: "Bob",
+//         age: 12
+//     }    
+// ];
+
+// function addPeople(people){
+//     peopleContainer.innerHTML = "";
+//     people.forEach(function(person){
+//         peopleContainer.innerHTML += `<div><h2>${person.name}</h2><p>They are ${person.age} years old</div>`;
+//     });
+// }
+
+// addPeople(peopleList);
+
+// function checkName(person){
+//     return person.age <= filterInput.value;
+// }
+
+// filterButton.onclick = function filterPeople(){
+//     const filteredPeople = peopleList.filter(checkName);
+//     addPeople(filteredPeople);
+// }

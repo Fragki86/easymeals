@@ -41,15 +41,12 @@ const searchRecipes = async (checkAll) => {
 const deliverHTML = (recCheck) => {
     if (recCheck.length > 0) {
         const finalResult = recCheck
-        .map(
-            (match) => `
+        .map((match) => `
             <a href="recipe-details.html?id=${match.recipe.id}">
                 <li>${match.recipe.name} <img class="search-res-img" src="${match.recipe.image_url}"></li>
             </a>`
-                // <img class="search-res-img" src="${match.recipe.image_url}"
         )
         .join("");
-        console.log(finalResult);
         searchResults.innerHTML = finalResult;
     }
 }
