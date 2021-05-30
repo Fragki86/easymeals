@@ -98,16 +98,16 @@ async function getRecipes() {
                 let categorySelector = document.querySelector(".all-categories").value;
                 console.log(categorySelector);
 
-                for (let i = 0; i < recipes.length; i++) {
-                    console.log(recipes);
+                // for (let i = 0; i < recipes.length; i++) {
+                //     console.log(recipes);
 
 
                     if (categorySelector === "all_recipes") {
                         console.log(recipes[i].recipe.name);
-                    } else if (categorySelector === "meat"){
-                        console.log(recipes[i].recipe.tags.keyword[0].name = true);
+                    } else if (categorySelector === "meat") {
+                        console.log(recipes[i].recipe.tags.keyword[0].name);
                     }
-                }
+                
             }
 
 
