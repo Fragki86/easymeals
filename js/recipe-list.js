@@ -8,22 +8,6 @@ async function getRecipes() {
     try {
         const response = await fetch(callAPI);
         const recipes = await response.json();
-        // console.log(recipes)
-
-        // TESTING
-        // console.log(recipes[0].recipe.tags.keyword[0].name);
-
-        
-
-
-
-
-
-
-
-
-        //----------------------------------------------------------
-
 
         recipeContainer.innerHTML = "";
 
@@ -94,94 +78,71 @@ async function getRecipes() {
             
             function filterByCategory() {
                 let categorySelector = document.querySelector(".all-categories").value;
-                console.log(categorySelector);
-
-                recipes.forEach(function(rec) {
-                    const category = rec.recipe.tags.keyword[0].name;
-                    
-                    // if (categorySelector === "meat") {
-                        
-                    //     console.log(category.value === "Meat")
-                    // } else if (categorySelector === "seafood") {
-                    //     console.log(category === "Seafood")
-                    // } else if (categorySelector === "pies") {
-                    //     console.log(category === "Pies")
-                    // }
-
-                    // for (let i = 0; i < recipes.length; i++) {
-
-                    //     let category = recipes[i].recipe.tags.keyword[0].name;
-
-                    //     if (categorySelector === "meat") {
-                    //         console.log(category === "Meat");
-                    //     }
-                    // }
-
-                    // if (categorySelector === "all_recipes") {
-                    //     console.log(recipes[i].recipe.name);
-                    // } 
-                    // else if (categorySelector === "meat") {
-                    //     console.log(category.name);
-                    // }
-                // });                
-            });
-
-            function checkCategory(rec) {
-                return category === "Meat";
-            }
-
-            
-
-
+                const filteredRecipes = recipes.filter(rec => rec.recipe.tags.keyword[0].name === categorySelector);
+                
+                getRecipes(filteredRecipes);
+                console.log(filteredRecipes);
         }
     }
     } catch(error) {
         console.log("Error");
     }
-    
+
     changeCat.addEventListener("change", filterByCategory);
     showMoreBtn.addEventListener("click", showMoreRecipes);
 }
-getRecipes();
+getRecipes()
 
 
-// const peopleContainer = document.querySelector(".people-container");
-// const filterButton = document.querySelector(".filter-button");
-// const filterInput = document.querySelector(".filter-input");
 
-// const peopleList = [
-//     {
-//         name: "Bob",
-//         age: 35
-//     },
-//     {
-//         name: "Sally",
-//         age: 29
-//     },
-//     {
-//         name: "Mark",
-//         age: 45
-//     },
-//     {
-//         name: "Bob",
-//         age: 12
-//     }    
-// ];
 
-// function addPeople(people){
-//     peopleContainer.innerHTML = "";
-//     people.forEach(function(person){
-//         peopleContainer.innerHTML += `<div><h2>${person.name}</h2><p>They are ${person.age} years old</div>`;
+        // recipes.forEach(function(recipeInfo) {
+        //     recipeContainer.innerHTML += `
+        //     <a href="recipe-details.html?id=${recipeInfo.id}">
+        //     <div class="individual-container">
+        //      <div class="ind-img">
+        //          <img class="rendered-img" src=${recipeInfo.recipe.image_url} alt="${recipeInfo.recipe.name}">
+        //      </div>
+        //         <div class="ind-h2">
+        //             <h2>${recipeInfo.recipe.name}</h2>
+        //         </div>
+
+        //         <div class="cooking-info">
+        //             <div class="cook-time">
+        //                 <img src="images/Icon-stopwatch.png" alt="stopwatch"><p>${recipeInfo.recipe.total_time}'<p>
+        //             </div>
+        //             <div class="difficulty">
+        //                 <img src="images/Icon-chef.png" alt="chefs-hat"><p>${recipeInfo.recipe.custom_time_label}</p>
+        //             </div>
+        //             <div class="portions">
+        //                 <img src="images/Icon-spoon-fork.png" alt="spoon and fork"><p>${recipeInfo.recipe.servings}</p>
+        //             </div>
+        //         </div>
+        //     </div>
+        //     </a>` 
+        // })
+
+
+
+// .then(
+//     function rec(recipeInfo) {
+//         let categorySelector = document.querySelector(".all-categories").value;
+//         return recipeInfo.recipe.tags.keyword[0].name === categorySelector;
 //     });
-// }
+    
+// getRecipes().then(
+//     function filterByCategory() {
+//         let categorySelector = document.querySelector(".all-categories").value;
+//         console.log(categorySelector);
+//         const filteredRecipes = recipes.filter(rec);
+//         getRecipes(filteredRecipes);
+//         console.log(filteredRecipes);
+//     }
 
-// addPeople(peopleList);
+// );
 
-// function checkName(person){
-//     return person.age <= filterInput.value;
-// }
 
-// filterButton.onclick = function filterPeople(){
-//     const filteredPeople = peopleList.filter(checkName);
-//     addPeople(filteredPeople);
-// }
+
+
+
+
