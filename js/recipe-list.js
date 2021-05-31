@@ -2,22 +2,39 @@ const recipeContainer = document.querySelector(".recipes-list");
 const callAPI = "https://easy-meals-recipes.georgiosf.no/wp-json/wp/v2/wprm_recipe?per_page=100";
 const changeCat = document.querySelector(".all-categories");
 const showMoreBtn = document.querySelector("#showMoreBtn");
-
+ 
 
 async function getRecipes() {
     try {
         const response = await fetch(callAPI);
         const recipes = await response.json();
-
+ 
         recipeContainer.innerHTML = "";
+        renderRecipes(recipes, 0, 6);
+ 
+        return recipes;
+    } catch (error) {
+        console.log("Error");
+    }
+}
+ 
+getRecipes().then((recipes) => {
+    changeCat.addEventListener("change", () => filterByCategory(recipes));
+    showMoreBtn.addEventListener("click", () => showMoreRecipes(recipes));
+});
 
-        for (let i = 0; i < recipes.length; i++) {
-            
-            if (i===6) {
-                break
-            } 
 
-            recipeContainer.innerHTML += `
+
+function renderRecipes(recipes, start = 0, stop = 6) {
+    recipeContainer.innerHTML = "";
+ 
+    for (let i = start; i < recipes.length; i++) {
+ 
+        if (i === stop) {
+            break;
+        }
+ 
+        recipeContainer.innerHTML += `
             <a href="recipe-details.html?id=${recipes[i].id}">
             <div class="individual-container">
              <div class="ind-img">
@@ -26,7 +43,7 @@ async function getRecipes() {
                 <div class="ind-h2">
                     <h2>${recipes[i].recipe.name}</h2>
                 </div>
-
+ 
                 <div class="cooking-info">
                     <div class="cook-time">
                         <img src="images/Icon-stopwatch.png" alt="stopwatch"><p>${recipes[i].recipe.total_time}'<p>
@@ -39,59 +56,137 @@ async function getRecipes() {
                     </div>
                 </div>
             </div>
-            </a>` 
-
-
-
-            function showMoreRecipes() {
-                for (let i = 6; i < recipes.length; i++)
-                
-                recipeContainer.innerHTML += `
-                <a href="recipe-details.html?id=${recipes[i].id}">
-                <div class="individual-container">
-                 <div class="ind-img">
-                     <img class="rendered-img" src=${recipes[i].recipe.image_url} alt="${recipes[i].recipe.name}">
-                 </div>
-                    <div class="ind-h2">
-                        <h2>${recipes[i].recipe.name}</h2>
-                    </div>
-
-                    <div class="cooking-info">
-                        <div class="cook-time">
-                            <img src="images/Icon-stopwatch.png" alt="stopwatch"><p>${recipes[i].recipe.total_time}'<p>
-                        </div>
-                        <div class="difficulty">
-                            <img src="images/Icon-chef.png" alt="chefs-hat"><p>${recipes[i].recipe.custom_time_label}</p>
-                        </div>
-                        <div class="portions">
-                            <img src="images/Icon-spoon-fork.png" alt="spoon and fork"><p>${recipes[i].recipe.servings}</p>
-                        </div>
-                    </div>
-                </div>
-                </a>` 
-                showMoreBtn.disabled = true;
-                showMoreBtn.innerText = "No more recipes to show"
-                showMoreBtn.style.width = "50%";
-            }
-
-
-            
-            function filterByCategory() {
-                let categorySelector = document.querySelector(".all-categories").value;
-                const filteredRecipes = recipes.filter(rec => rec.recipe.tags.keyword[0].name === categorySelector);
-                
-                getRecipes(filteredRecipes);
-                console.log(filteredRecipes);
-        }
+            </a>`
     }
-    } catch(error) {
-        console.log("Error");
-    }
-
-    changeCat.addEventListener("change", filterByCategory);
-    showMoreBtn.addEventListener("click", showMoreRecipes);
 }
-getRecipes()
+ 
+function showMoreRecipes(recipes) {
+    renderRecipes(recipes, 0, recipes.length);
+ 
+ 
+    showMoreBtn.disabled = true;
+    showMoreBtn.innerText = "No more recipes to show"
+    showMoreBtn.style.width = "50%";
+}
+ 
+function filterByCategory(recipes) {
+    let categorySelector = document.querySelector(".all-categories").value;
+ 
+    if (categorySelector === "all_recipes") {
+        renderRecipes(recipes);
+    } else {
+        const filteredRecipes = recipes.filter(rec => rec.recipe.tags.keyword[0].name === categorySelector);
+        renderRecipes(filteredRecipes);
+    }
+}
+ 
+
+
+
+
+
+
+
+
+// const recipeContainer = document.querySelector(".recipes-list");
+// const callAPI = "https://easy-meals-recipes.georgiosf.no/wp-json/wp/v2/wprm_recipe?per_page=100";
+// const changeCat = document.querySelector(".all-categories");
+// const showMoreBtn = document.querySelector("#showMoreBtn");
+
+
+// async function getRecipes() {
+//     try {
+//         const response = await fetch(callAPI);
+//         const recipes = await response.json();
+
+//         recipeContainer.innerHTML = "";
+
+//         for (let i = 0; i < recipes.length; i++) {
+            
+//             if (i===6) {
+//                 break
+//             } 
+
+//             recipeContainer.innerHTML += `
+//             <a href="recipe-details.html?id=${recipes[i].id}">
+//             <div class="individual-container">
+//              <div class="ind-img">
+//                  <img class="rendered-img" src=${recipes[i].recipe.image_url} alt="${recipes[i].recipe.name}">
+//              </div>
+//                 <div class="ind-h2">
+//                     <h2>${recipes[i].recipe.name}</h2>
+//                 </div>
+
+//                 <div class="cooking-info">
+//                     <div class="cook-time">
+//                         <img src="images/Icon-stopwatch.png" alt="stopwatch"><p>${recipes[i].recipe.total_time}'<p>
+//                     </div>
+//                     <div class="difficulty">
+//                         <img src="images/Icon-chef.png" alt="chefs-hat"><p>${recipes[i].recipe.custom_time_label}</p>
+//                     </div>
+//                     <div class="portions">
+//                         <img src="images/Icon-spoon-fork.png" alt="spoon and fork"><p>${recipes[i].recipe.servings}</p>
+//                     </div>
+//                 </div>
+//             </div>
+//             </a>` 
+
+
+//         return recipes;
+            
+//     }
+//     } catch(error) {
+//         console.log("Error");
+//     }
+
+    
+// }
+// getRecipes().then(() => {
+//     changeCat.addEventListener("change", filterByCategory);
+//     showMoreBtn.addEventListener("click", showMoreRecipes);
+    
+
+// function showMoreRecipes(recipes) {
+//     for (let i = 6; i < recipes.length; i++)
+    
+//     recipeContainer.innerHTML += `
+//     <a href="recipe-details.html?id=${recipes[i].id}">
+//     <div class="individual-container">
+//      <div class="ind-img">
+//          <img class="rendered-img" src=${recipes[i].recipe.image_url} alt="${recipes[i].recipe.name}">
+//      </div>
+//         <div class="ind-h2">
+//             <h2>${recipes[i].recipe.name}</h2>
+//         </div>
+
+//         <div class="cooking-info">
+//             <div class="cook-time">
+//                 <img src="images/Icon-stopwatch.png" alt="stopwatch"><p>${recipes[i].recipe.total_time}'<p>
+//             </div>
+//             <div class="difficulty">
+//                 <img src="images/Icon-chef.png" alt="chefs-hat"><p>${recipes[i].recipe.custom_time_label}</p>
+//             </div>
+//             <div class="portions">
+//                 <img src="images/Icon-spoon-fork.png" alt="spoon and fork"><p>${recipes[i].recipe.servings}</p>
+//             </div>
+//         </div>
+//     </div>
+//     </a>` 
+//     showMoreBtn.disabled = true;
+//     showMoreBtn.innerText = "No more recipes to show"
+//     showMoreBtn.style.width = "50%";
+// }
+
+
+
+// function filterByCategory(recipes) {
+//     let categorySelector = document.querySelector(".all-categories").value;
+//     const filteredRecipes = recipes.filter(rec => rec.recipe.tags.keyword[0].name === categorySelector);
+    
+//     getRecipes(filteredRecipes);
+//     console.log(filteredRecipes);
+// }
+// })
 
 
 
