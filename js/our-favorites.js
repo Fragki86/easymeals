@@ -6,26 +6,20 @@ async function getFavorite() {
     try {
         const response = await fetch(callAPI);
         const recipesExtra = await response.json();
-        // console.log(recipesExtra)
         favoriteRecipesContainer.innerHTML = "";
-
-        // randomJoke(arr) {
-        //     var joke = arr[Math.floor(Math.random()*arr.length)];
-        //     this.setState({jokes: [joke] });
-        //  }
 
         recipesExtra.forEach(function(recipeInfo) {
 
             favoriteRecipesContainer.innerHTML  +=`
                     <a href="recipe-details.html?id=${recipeInfo.id}">
-                    <div class="related-recipes-container">
-                        <div class="rel-img">
-                            <img class="rel-rend-img" src=${recipeInfo.recipe.image_url} alt="${recipeInfo.recipe.name}">
+                        <div class="related-recipes-container">
+                            <div class="rel-img">
+                                <img class="rel-rend-img" src=${recipeInfo.recipe.image_url} alt="${recipeInfo.recipe.name}">
+                            </div>
+                            <div class="rel-h3">
+                                <h3>${recipeInfo.recipe.name}</h3>
+                            </div>
                         </div>
-                        <div class="rel-h3">
-                            <h3>${recipeInfo.recipe.name}</h3>
-                        </div>
-                    </div>
                     </a>` 
         })
 

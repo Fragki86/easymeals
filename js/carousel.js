@@ -12,7 +12,6 @@ async function getCarousel() {
     try {
         const response = await fetch(carouselAPI + offset);
         const carouselRecipe = await response.json();
-        // console.log(carouselRecipe)
         carousel.innerHTML = "";
 
         carouselRecipe.forEach(function(carInfo) {
@@ -49,6 +48,7 @@ async function getCarousel() {
                     </a>`
         })
 
+
         /* ----------------- Button functionality ----------------- */
         const prevBtn = document.querySelector("#prev-slide");
         const nextBtn = document.querySelector("#next-slide");
@@ -58,11 +58,8 @@ async function getCarousel() {
                 offset++
             } else if (offset === 14) {
                 offset === 12
-            }
-
-            
+            }  
             getCarousel();
-            
         });
         
         prevBtn.addEventListener("click", () => {
@@ -94,9 +91,9 @@ async function getCarousel() {
     //         }
     //     }
 
-        } catch(error) {
+    } catch(error) {
             console.log("Error");
-        }
+    }
 }
 
 getCarousel();

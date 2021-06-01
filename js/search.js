@@ -7,12 +7,16 @@ const searchResults = document.querySelector(".search-results");
 searchIcon.addEventListener ("click", comeDown);
 searchBar.addEventListener("input", () => searchRecipes(searchBar.value));
 
+
+
+/*---------------------------- Show search bar -------------------------- */
 function comeDown() {
     searchArea.classList.toggle("search-visible");
 }
 
-searchResults.innerHTML = "";
 
+/*---------------------------- Fetch API and set parameters -------------------------- */
+searchResults.innerHTML = "";
 const searchRecipes = async (checkAll) => {
         try {
             const response = await fetch(searchAPI);
@@ -37,7 +41,7 @@ const searchRecipes = async (checkAll) => {
         }
     }
 
-
+/*---------------------------- Show in HTML -------------------------- */
 const deliverHTML = (recCheck) => {
     if (recCheck.length > 0) {
         const finalResult = recCheck

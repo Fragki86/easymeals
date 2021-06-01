@@ -19,15 +19,4 @@ function stylishLinks() {
         }
 
     })
-} 
-
-
-
-/* ----------------- Roll up menu ----------------- */
-// document.addEventListener('mouseup', rollUp)
-
-// function rollUp() {
-//     if (!navMobile.contains(clear.target)) {
-//         navMobile.style.display = 'none';
-//     }
-// };
+}
