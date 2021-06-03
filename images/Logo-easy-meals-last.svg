@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="163" height="197.762" viewBox="0 0 163 197.762">
+  <g id="Logo-easy-meals" transform="translate(-416.498 -94.414)">
+    <path id="Path_2" data-name="Path 2" d="M543.78,283.35" transform="translate(-67.493 -96.236)" fill="#38241d"/>
+    <g id="Group_20" data-name="Group 20" transform="translate(-4.301)">
+      <g id="Group_1" data-name="Group 1" transform="translate(465.647 97.876)">
+        <path id="Path_1" data-name="Path 1" d="M595.9,203.947H521.91V99.91h73.983V203.947Z" transform="translate(-521.91 -99.91)" fill="#a47343"/>
+      </g>
+      <g id="Group_2" data-name="Group 2" transform="translate(465.652 205.61)">
+        <rect id="Rectangle_1" data-name="Rectangle 1" width="73.983" height="13.874" fill="#6f4323"/>
+      </g>
+      <g id="Group_3" data-name="Group 3" transform="translate(465.652 224.106)">
+        <rect id="Rectangle_2" data-name="Rectangle 2" width="73.983" height="11.559" fill="#38241d"/>
+      </g>
+      <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="11.559" cy="9.248" rx="11.559" ry="9.248" transform="translate(464.728 194.051)" fill="#fff"/>
+      <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="11.559" cy="9.248" rx="11.559" ry="9.248" transform="translate(516.056 212.547)" fill="#fff"/>
+      <g id="Group_4" data-name="Group 4" transform="translate(527.152 217.169)">
+        <rect id="Rectangle_3" data-name="Rectangle 3" width="12.021" height="2.311" transform="translate(0)" fill="#6f4323"/>
+      </g>
+      <g id="Group_5" data-name="Group 5" transform="translate(527.152 224.106)">
+        <rect id="Rectangle_4" data-name="Rectangle 4" width="12.021" height="2.311" transform="translate(0)" fill="#38241d"/>
+      </g>
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="2.427" cy="2.427" r="2.427" transform="translate(500.216 101.802)" fill="#fff"/>
+      <path id="Path_3" data-name="Path 3" d="M538.784,153.9H514V98.961a.935.935,0,0,1,.909-.961h31.183a.935.935,0,0,1,.909.961v46.245A8.464,8.464,0,0,1,538.784,153.9Z" transform="translate(-52.201 -3.586)" fill="#fff"/>
+      <path id="Path_4" data-name="Path 4" d="M646.65,154.845H621.739c-4.468,0-8.089-3.891-8.089-8.693V98.95h33Z" transform="translate(-103.374 -4.26)" fill="#fff"/>
+    </g>
+    <text id="Easy_Meals" data-name="Easy Meals" transform="translate(417.498 268.908)" fill="#6f4323" font-size="32" font-family="KansasNew-Light, KansasNew" font-weight="300"><tspan x="0" y="0">Easy Meals</tspan></text>
+    <text id="_-make_it_simple_make_it_great-" data-name="-make it simple, make it great-" transform="translate(416.498 288.175)" fill="#6f4323" font-size="15" font-family="CormorantGaramond-Italic, Cormorant Garamond" font-style="italic"><tspan x="0" y="0">-make it simple, make it great-</tspan></text>
+  </g>
+</svg>

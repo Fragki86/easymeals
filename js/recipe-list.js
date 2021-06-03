@@ -49,13 +49,13 @@ function renderRecipes(recipes, start = 0, stop = 6) {
  
                 <div class="cooking-info">
                     <div class="cook-time">
-                        <img src="images/Icon-stopwatch.png" alt="stopwatch"><p>${recipes[i].recipe.total_time}'<p>
+                        <img src="images/stopwatch-last.svg" alt="stopwatch" class="icons-info"><p>${recipes[i].recipe.total_time}'<p>
                     </div>
                     <div class="difficulty">
-                        <img src="images/Icon-chef.png" alt="chefs-hat"><p>${recipes[i].recipe.custom_time_label}</p>
+                        <img src="images/chef-last.svg" alt="chefs-hat" class="icons-info"><p>${recipes[i].recipe.custom_time_label}</p>
                     </div>
                     <div class="portions">
-                        <img src="images/Icon-spoon-fork.png" alt="spoon and fork"><p>${recipes[i].recipe.servings}</p>
+                        <img src="images/cutlery-last.svg" alt="spoon and fork" class="icons-info"><p>${recipes[i].recipe.servings}</p>
                     </div>
                 </div>
             </div>
