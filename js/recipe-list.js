@@ -38,7 +38,7 @@ function renderRecipes(recipes, start = 0, stop = 6) {
         }
  
         recipeContainer.innerHTML += `
-            <a href="recipe-details.html?id=${recipes[i].id}">
+            <a" href="recipe-details.html?id=${recipes[i].id}">
             <div class="individual-container">
              <div class="ind-img">
                  <img class="rendered-img" src=${recipes[i].recipe.image_url} alt="${recipes[i].recipe.name}">

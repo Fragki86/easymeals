@@ -26,27 +26,43 @@ async function getDetails() {
 
 /* ----------------- Making the img bigger ----------------- */
 getDetails().then(() => {
-    const imgBig = document.querySelector(".img-info-grid img")
+    // const imgBig = document.querySelector(".img-info-grid img")
 
-    imgBig.addEventListener("click", zoomImg);
+    // imgBig.addEventListener("click", zoomImg);
     
-    function zoomImg() {
-        biggerImage.style.display = "block";
-    }    
+    // function zoomImg() {
+    //     biggerImage.style.display = "block";
+    // }    
+
+    document.onclick = function(event){
+        const imgBig = document.querySelector(".img-info-grid img")
+        if (!event.target.closest(".bigger-img")) {
+            biggerImage.style.display = "none";
+        }
+        
+        if (event.target === imgBig) {
+            biggerImage.style.display = "block";
+        }
+    }
 });
 
 
 
 
 /* ----------------- Exit zoomed image ----------------- */
-document.addEventListener('mouseup', clear)
 
-function clear() {
-    const closeModal = document.querySelector(".bigger-img");
-    if (!closeModal.contains(clear.target)) {
-        closeModal.style.display = 'none';
-    }
-};
+// document.addEventListener('mouseup', clear)
+
+// function clear() {
+//     const closeModal = document.querySelector(".bigger-img");
+//     if (!closeModal.contains(clear.target)) {
+//         closeModal.style.display = "none";
+//     }
+
+//     if (closeModal.contains(clear.target)) {
+//         closeModal.style.display = "block";
+//     }
+// };
 
 
 
