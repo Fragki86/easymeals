@@ -1,4 +1,4 @@
-/*------------------------   Form validation -----------------------------*/
+/*------------------------  Contact Form variables -----------------------------*/
 const form = document.querySelector("#contact-form");
 const Name = document.querySelector("#name");
 const NameError = document.querySelector("#nameError");
@@ -12,9 +12,22 @@ const button = document.querySelector("button");
 const success = document.querySelector("#success-message");
 
 
+/*------------------------  Newsletter Form variables -----------------------------*/
+const newsLetterForm = document.querySelector("#newsletter-form");
+const emailNewsletter = document.querySelector("#email-newsletter");
+const emailNewsletterError = document.querySelector("#email-newsletterError");
+const submitMail = document.querySelector("#sign-up-button");
+
+
+
+
+/*------------------------   Event Listeners -----------------------------*/
 form.addEventListener("submit", formValidation);
+newsLetterForm.addEventListener("submit", newsLetterValidation);
 
 
+
+/*------------------------   Contact form functions -----------------------------*/
 function checkLength (value, letters) {
     if (value.trim().length > letters) {
         return true;
@@ -35,13 +48,13 @@ function checkEmail (email) {
 function formValidation(event) {
     event.preventDefault();
 
-    if (checkLength(Name.value, 5) === true) {
+    if (checkLength(Name.value, 4) === true) {
         NameError.style.display = "none";
     } else {
         NameError.style.display = "block";
     }
 
-    if (checkLength(content.value, 25) === true) {
+    if (checkLength(content.value, 24) === true) {
         contentError.style.display = "none";
     } else {
         contentError.style.display = "block";
@@ -53,17 +66,15 @@ function formValidation(event) {
         emailError.style.display = "block";
     }
 
-    if (checkLength(subject.value, 15) === true) {
+    if (checkLength(subject.value, 14) === true) {
         subjectError.style.display = "none";
     } else {
         subjectError.style.display = "block";
     }
         
-    if (checkLength(Name.value, 5) && checkLength(content.value, 25) && checkEmail(email.value) && checkLength(subject.value, 15)) {
+    if (checkLength(Name.value, 4) && checkLength(content.value, 25) && checkEmail(email.value) && checkLength(subject.value, 15)) {
         success.style.display = "flex";
-        form.reset();
-        formSubmissionHandler(event);
-        
+        form.reset();        
     } else {
         success.style.display = "none";
     }
@@ -81,3 +92,26 @@ function clear() {
         clickToRemove.style.display = 'none';
     }
 };
+
+
+
+/*------------------------  Newsletter validation -----------------------------*/
+function newsLetterValidation(event) {
+    event.preventDefault();
+
+    if (checkEmail(emailNewsletter.value) === true) {
+        emailNewsletterError.style.display = "none";
+        
+    } else {
+        emailNewsletterError.style.display = "block";
+    }
+
+
+
+    if (checkEmail(emailNewsletter.value)) {
+        newsLetterForm.reset();
+        submitMail.style.backgroundColor = "green";
+        submitMail.innerText = "Welcome";
+        submitMail.disabled = true; 
+    }
+}
