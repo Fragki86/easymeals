@@ -6,8 +6,7 @@ const activeDot = document.querySelector(".active-dot");
 
 let offset = 12;
 
-
-
+/* ----------------- Fetch Api and create innerHTML ----------------- */
 async function getCarousel() {
     try {
         const response = await fetch(carouselAPI + offset);
@@ -76,20 +75,6 @@ async function getCarousel() {
         if (offset === 14) {
             nextBtn.style.display = "none";
         }
-
-       /* ----------------- Dots functionality ----------------- */
-        
-
-    //    const dots = document.querySelector(".dot");
-    //         const activeDot = document.querySelector(".active-dot");
-            
-
-    //     for (let i = 0; i < dots.length; i++) {
-           
-    //         if (offset===13) {
-    //             dots[0].classlist.add("active-dot")
-    //         }
-    //     }
 
     } catch(error) {
             console.log("Error");
